@@ -27,11 +27,9 @@ class Herbivore(Animal):
 
 class Carnivore(Animal):
     def bite(self, prey: Herbivore) -> None:
-        # Só morde Herbivore; não afeta outros Carnivore
         if not isinstance(prey, Herbivore):
             return
 
-        # Não morde se a presa estiver escondida
         if prey.hidden:
             return
 
@@ -41,4 +39,5 @@ class Carnivore(Animal):
             prey.health = 0
             if prey in Animal.alive:
                 Animal.alive.remove(prey)
+
 
